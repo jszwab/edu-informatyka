@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Informatyka w klasie 4 i kłódka w przeglądarce</title>
+  <meta name="description" content="Dla rodziców: dlaczego wymagająca informatyka w klasie 4 to dobra wiadomość oraz czym jest certyfikat SSL/TLS i komunikat o niezaufanym certyfikacie.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Dla rodziców uczniów klasy 4</p>
+    <h1>Informatyka w klasie 4<br><span>i kłódka w przeglądarce</span></h1>
+    <p class="lead">Dwie sprawy, o których dużo ostatnio rozmawiamy: jak wyglądają dziś lekcje informatyki i co tak naprawdę oznacza ostrzeżenie o certyfikacie na platformie z zadaniami.</p>
+    <nav class="toc" aria-label="Spis treści">
+      <a href="#czesc-1"><b>1</b> Informatyka dziś</a>
+      <a href="#czesc-2"><b>2</b> Certyfikaty i kłódka</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ===================== CZĘŚĆ 1 ===================== -->
+<section id="czesc-1" class="part">
+  <div class="wrap">
+    <p class="part-no">Część 1</p>
+    <h2>Wymagająca informatyka to dobra informatyka</h2>
+    <p class="note">To moja subiektywna opinia jako rodzica i osoby, która zawodowo zajmuje się informatyką.</p>
+
+    <div class="prose reveal">
+      <p>Uważam, że nasz Pan od informatyki prowadzi zajęcia na wysokim poziomie. Wysoki poziom ma swoją cenę: wymaga pracy w domu. Tak jest z każdym wymagającym przedmiotem. Jeśli dziecko ma naprawdę zrozumieć tematy przerabiane na lekcji, sama praca w szkole nie wystarczy.</p>
+      <p>Dzisiejsza informatyka to już nie to, co za naszych szkolnych czasów. Wtedy uczyliśmy się głównie obsługi Worda i Excela. Dziś dochodzi do tego nauka myślenia algorytmicznego, grafika rastrowa czy praca w chmurze.</p>
+    </div>
+
+    <!-- Infografika: kiedyś vs dziś -->
+    <figure class="infographic reveal" aria-labelledby="cap-kiedys">
+      <div class="then-now">
+        <div class="col then">
+          <h3>Kiedyś</h3>
+          <ul class="chips">
+            <li><span class="ico" aria-hidden="true">📝</span>Edytor tekstu</li>
+            <li><span class="ico" aria-hidden="true">📊</span>Arkusz kalkulacyjny</li>
+          </ul>
+        </div>
+        <div class="arrow" aria-hidden="true">
+          <svg viewBox="0 0 80 24"><path class="arrow-line" d="M2 12 H70"/><path d="M62 4 L74 12 L62 20" class="arrow-head"/></svg>
+        </div>
+        <div class="col now">
+          <h3>Dziś</h3>
+          <ul class="tiles">
+            <li class="tile">
+              <svg viewBox="0 0 120 80" aria-hidden="true" class="algo">
+                <rect x="10" y="8"  width="70" height="16" rx="5" class="blk b1"/>
+                <rect x="22" y="30" width="80" height="16" rx="5" class="blk b2"/>
+                <rect x="22" y="52" width="60" height="16" rx="5" class="blk b3"/>
+              </svg>
+              <b>Myślenie algorytmiczne</b>
+              <small>Rozkładanie problemu na kroki, pierwsze programy z klocków.</small>
+            </li>
+            <li class="tile">
+              <svg viewBox="0 0 80 80" aria-hidden="true" class="pixels">
+                <g id="px"></g>
+              </svg>
+              <b>Grafika rastrowa</b>
+              <small>Obraz złożony z pikseli, warstwy, rozdzielczość.</small>
+            </li>
+            <li class="tile">
+              <svg viewBox="0 0 120 80" aria-hidden="true" class="cloud">
+                <path d="M30 58 a16 16 0 0 1 2-32 a22 22 0 0 1 42-6 a18 18 0 0 1 16 38 z" class="cloud-shape"/>
+                <rect x="50" y="48" width="14" height="18" rx="2" class="doc"/>
+              </svg>
+              <b>Chmura</b>
+              <small>Pliki dostępne z każdego miejsca, udostępnianie, wspólna praca.</small>
+            </li>
+            <li class="tile">
+              <svg viewBox="0 0 120 80" aria-hidden="true" class="tree">
+                <rect x="8" y="8" width="30" height="14" rx="3" class="fold"/>
+                <path d="M23 22 V60 M23 38 H48 M23 60 H48" class="branch"/>
+                <rect x="48" y="31" width="30" height="14" rx="3" class="fold f2"/>
+                <rect x="48" y="53" width="30" height="14" rx="3" class="fold f3"/>
+              </svg>
+              <b>Porządek w plikach</b>
+              <small>Foldery, nazwy, zapisywanie i odnajdywanie swojej pracy.</small>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <figcaption id="cap-kiedys">Zakres informatyki w szkole podstawowej jest dziś dużo szerszy niż kiedyś.</figcaption>
+    </figure>
+
+    <div class="prose reveal">
+      <p>Pomagamy dzieciom w nauce czytania, pisania i liczenia. Przy informatyce też potrzebują naszej pomocy, szczególnie na początku, gdy wszystko jest nowe.</p>
+    </div>
+
+    <!-- Infografika: pomagamy tak samo -->
+    <figure class="infographic reveal" aria-labelledby="cap-pomoc">
+      <ol class="help-row">
+        <li><span class="bubble">Aa</span>Czytanie</li>
+        <li><span class="bubble">✎</span>Pisanie</li>
+        <li><span class="bubble">2+2</span>Liczenie</li>
+        <li class="highlight"><span class="bubble">&lt;/&gt;</span>Informatyka</li>
+      </ol>
+      <figcaption id="cap-pomoc">Ten sam schemat: dziecko ćwiczy, a rodzic jest obok, gdy trzeba.</figcaption>
+    </figure>
+
+    <div class="tips reveal">
+      <h3>Jak można pomóc w praktyce</h3>
+      <ul>
+        <li><b>Usiądźcie razem na 15 minut</b> przy pierwszym zadaniu z nowego tematu. Potem dziecko zwykle radzi sobie samo.</li>
+        <li><b>Poproście, żeby dziecko wam wytłumaczyło</b>, co robiło na lekcji. Tłumaczenie innym to najlepszy sposób, by samemu zrozumieć.</li>
+        <li><b>Czytajcie polecenie krok po kroku</b> i odhaczajcie kolejne punkty.</li>
+        <li><b>Nie róbcie zadania za dziecko.</b> Lepiej zadać pytanie naprowadzające niż kliknąć za nie.</li>
+      </ul>
+    </div>
+
+    <blockquote class="quote reveal">
+      <p>Wiem, że moja opinia jest bardzo subiektywna, ale za moich szkolnych czasów chciałbym mieć takiego nauczyciela.</p>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ===================== CZĘŚĆ 2 ===================== -->
+<section id="czesc-2" class="part part-alt">
+  <div class="wrap">
+    <p class="part-no">Część 2</p>
+    <h2>Kłódka w przeglądarce, czyli o certyfikatach</h2>
+    <p class="note">Wyjaśnienie bez żargonu: co oznacza „https”, czym jest certyfikat i skąd bierze się ostrzeżenie na platformie edutrack.</p>
+
+    <!-- 2.1 HTTP vs HTTPS -->
+    <h3 class="step-title reveal"><span>1</span> Pocztówka czy zaklejona koperta?</h3>
+    <div class="prose reveal">
+      <p>Gdy otwieramy stronę, komputer wymienia z nią wiadomości. Przy zwykłym <b>http</b> te wiadomości wędrują jak pocztówka: każdy po drodze może je przeczytać. Przy <b>https</b> są w zaklejonej kopercie, czyli zaszyfrowane. Za to szyfrowanie odpowiada protokół <b>TLS</b> (dawniej SSL, stąd nazwa „certyfikat SSL”).</p>
+    </div>
+    <figure class="infographic reveal" aria-labelledby="cap-http">
+      <svg viewBox="0 0 640 220" class="transport" role="img" aria-label="Porównanie: http jak pocztówka, https jak zaklejona koperta">
+        <text x="10" y="30" class="lbl">http://</text>
+        <g class="node"><rect x="10" y="44" width="70" height="48" rx="8"/><text x="45" y="76">💻</text></g>
+        <g class="node"><rect x="560" y="44" width="70" height="48" rx="8"/><text x="595" y="76">🏫</text></g>
+        <path d="M84 68 H556" class="lane"/>
+        <g class="traveler t1">
+          <rect x="0" y="-14" width="64" height="28" rx="3" class="postcard"/>
+          <text x="32" y="4" class="tiny dark">hasło: kot1</text>
+        </g>
+        <g transform="translate(300 30)"><text x="0" y="0" class="emo">👀</text><text x="40" y="-4" class="tiny warn">widzę!</text></g>
+
+        <text x="10" y="140" class="lbl ok">https://</text>
+        <g class="node"><rect x="10" y="154" width="70" height="48" rx="8"/><text x="45" y="186">💻</text></g>
+        <g class="node"><rect x="560" y="154" width="70" height="48" rx="8"/><text x="595" y="186">🏫</text></g>
+        <path d="M84 178 H556" class="lane"/>
+        <g class="traveler t2">
+          <rect x="0" y="-14" width="64" height="28" rx="3" class="envelope"/>
+          <path d="M0 -14 L32 4 L64 -14" class="flap"/>
+        </g>
+        <g transform="translate(300 140)"><text x="0" y="0" class="emo">👀</text><text x="40" y="-4" class="tiny">nic nie widać</text></g>
+      </svg>
+      <figcaption id="cap-http">https szyfruje wiadomości między naszym komputerem a stroną.</figcaption>
+    </figure>
+
+    <!-- 2.2 Certyfikat -->
+    <h3 class="step-title reveal"><span>2</span> Certyfikat to „legitymacja” strony</h3>
+    <div class="prose reveal">
+      <p>Szyfrowanie to jedno, ale skąd wiemy, że rozmawiamy z właściwą stroną, a nie z kimś, kto się pod nią podszywa? Do tego służy <b>certyfikat</b>. To coś jak legitymacja: mówi „jestem stroną <i>edu.przyklad.pl</i>” i ma podpis kogoś, kto to potwierdził.</p>
+      <p>Tym „kimś” jest <b>urząd certyfikacji</b>, po angielsku <b>CA</b> (Certificate Authority). To po prostu instytucja, której przeglądarki i systemy operacyjne ufają. Lista takich zaufanych instytucji jest wbudowana w Windows, macOS, Androida i przeglądarki.</p>
+    </div>
+
+    <figure class="infographic reveal" aria-labelledby="cap-cert">
+      <div class="cert-card">
+        <div class="cert-head"><span class="lock-anim" aria-hidden="true">🔒</span> Certyfikat</div>
+        <dl>
+          <dt>Dla strony</dt><dd>edu.przyklad.pl</dd>
+          <dt>Wystawił</dt><dd>Zaufany urząd certyfikacji (CA)</dd>
+          <dt>Ważny przez</dt><dd>90 dni</dd>
+        </dl>
+        <div class="stamp" aria-hidden="true">PODPIS<br>CA</div>
+      </div>
+      <figcaption id="cap-cert">Przeglądarka sprawdza podpis. Jeśli zna i ufa wystawcy, pokazuje kłódkę.</figcaption>
+    </figure>
+
+    <!-- 2.3 Co sprawdza CA -->
+    <h3 class="step-title reveal"><span>3</span> Co tak naprawdę sprawdza urząd certyfikacji?</h3>
+    <div class="prose reveal">
+      <p>Najczęściej spotykane certyfikaty to certyfikaty <b>DV</b> (Domain Validation, potwierdzenie domeny). Przy nich urząd certyfikacji sprawdza <b>tylko jedno</b>: czy osoba prosząca o certyfikat ma kontrolę nad adresem strony. Robi to automatycznie, np. prosząc o umieszczenie na stronie specjalnego pliku. Taki certyfikat można dziś dostać za darmo w kilka minut.</p>
+    </div>
+
+    <figure class="infographic reveal" aria-labelledby="cap-dv">
+      <ol class="flow">
+        <li><span class="dot">1</span><b>Prośba</b><small>„Chcę certyfikat dla edu.przyklad.pl”</small></li>
+        <li><span class="dot">2</span><b>Sprawdzenie</b><small>„Umieść na tej stronie plik z kodem 7F3A”</small></li>
+        <li><span class="dot">3</span><b>Plik jest</b><small>„Masz kontrolę nad adresem”</small></li>
+        <li class="done"><span class="dot">✓</span><b>Certyfikat</b><small>Wydany. Kłódka w przeglądarce.</small></li>
+      </ol>
+      <div class="not-checked">
+        <b>Czego urząd certyfikacji NIE sprawdza:</b>
+        <span>✗ czy strona jest uczciwa</span>
+        <span>✗ czy nie ma na niej wirusów</span>
+        <span>✗ kto naprawdę za nią stoi</span>
+      </div>
+      <figcaption id="cap-dv">Certyfikat DV potwierdza tylko, że ktoś kontroluje adres strony.</figcaption>
+    </figure>
+
+    <!-- 2.4 Analogia -->
+    <h3 class="step-title reveal"><span>4</span> Urząd certyfikacji i Pan od informatyki pełnią tę samą rolę</h3>
+    <div class="prose reveal">
+      <p>Zastanówmy się, co się dzieje, gdy Pan od informatyki, któremu ufamy my i nasze dzieci, mówi: „edutrack to nasza platforma, pod tym adresem są zadania i można z niej bezpiecznie korzystać”.</p>
+      <p>To dokładnie to samo, co robi urząd certyfikacji. Ktoś, komu ufamy, potwierdza, że dany adres należy do tego, do kogo powinien. W jednym przypadku poręcza instytucja wpisana do przeglądarki, w drugim nauczyciel, którego znamy osobiście.</p>
+    </div>
+
+    <figure class="infographic reveal" aria-labelledby="cap-analogia">
+      <div class="analogy">
+        <div class="side">
+          <div class="who"><span class="avatar" aria-hidden="true">🏛️</span>Urząd certyfikacji</div>
+          <div class="link-line" aria-hidden="true"></div>
+          <div class="says">„Ten adres należy do właściciela strony.”</div>
+          <div class="link-line" aria-hidden="true"></div>
+          <div class="result">Przeglądarka ufa: <b>kłódka 🔒</b></div>
+        </div>
+        <div class="equals" aria-hidden="true">=</div>
+        <div class="side">
+          <div class="who"><span class="avatar" aria-hidden="true">👨‍🏫</span>Pan od informatyki</div>
+          <div class="link-line" aria-hidden="true"></div>
+          <div class="says">„To jest nasza platforma z zadaniami.”</div>
+          <div class="link-line" aria-hidden="true"></div>
+          <div class="result">Rodzice i dzieci ufają: <b>wchodzimy ✓</b></div>
+        </div>
+      </div>
+      <figcaption id="cap-analogia">W obu przypadkach zaufanie opiera się na tym, kto poręcza za stronę.</figcaption>
+    </figure>
+
+    <div class="aside reveal">
+      <b>Uczciwie trzeba dodać:</b> przeglądarka sprawdza podpis urzędu certyfikacji sama, przy każdym wejściu. Słowo nauczyciela musimy „sprawdzić” sami, czyli upewnić się, że otwieramy dokładnie ten adres, który podał, a nie podobny link z innego źródła.
+    </div>
+
+    <!-- 2.5 Self-signed -->
+    <h3 class="step-title reveal"><span>5</span> Skąd ostrzeżenie na platformie edutrack?</h3>
+    <div class="prose reveal">
+      <p>Platforma edutrack używa certyfikatu <b>wystawionego samodzielnie</b> (ang. <i>self-signed</i>). To tak, jakby ktoś sam sobie wypisał legitymację i sam ją podpisał. Połączenie nadal jest szyfrowane, ale przeglądarka nie zna podpisującego, więc uprzedza: „Nie mogę potwierdzić, kto jest po drugiej stronie”.</p>
+      <p>To częsta praktyka, stosowana nawet w dużych firmach do wewnętrznych systemów, najczęściej z oszczędności. Na komputerach firmowych, a być może także szkolnych, dodaje się taki certyfikat do listy zaufanych. Wtedy ostrzeżenie się nie pojawia. W domach tej konfiguracji nie mamy, dlatego widzimy komunikat.</p>
+    </div>
+
+    <figure class="infographic reveal" aria-labelledby="cap-self">
+      <div class="two-browsers">
+        <div class="browser">
+          <div class="bar"><span class="pad ok">🔒</span> edutrack…</div>
+          <div class="screen ok-screen"><b>Komputer w szkole</b><small>certyfikat dodany do zaufanych</small><span class="big">✓</span></div>
+        </div>
+        <div class="browser">
+          <div class="bar"><span class="pad bad">⚠</span> edutrack…</div>
+          <div class="screen bad-screen"><b>Komputer w domu</b><small>„Połączenie nie jest prywatne”</small><span class="big">!</span></div>
+        </div>
+      </div>
+      <figcaption id="cap-self">Ta sama strona, ten sam certyfikat. Różni się tylko lista zaufanych wystawców na komputerze.</figcaption>
+    </figure>
+
+    <!-- 2.6 Kontekst i AI -->
+    <h3 class="step-title reveal"><span>6</span> „Przecież AI mówi, że ta strona jest niebezpieczna”</h3>
+    <div class="prose reveal">
+      <p>Miałem kilka rozmów o bezpieczeństwie platformy edutrack i często pojawiał się ten argument: sztuczna inteligencja potwierdziła, że strona jest niebezpieczna. Tyle że odpowiedź AI zależy od tego, o co i jak zapytamy. Kluczowy jest <b>kontekst</b>.</p>
+      <p>Ostrzeżenie o certyfikacie na stronie, na której się go nie spodziewamy, rzeczywiście jest podejrzane. Ale nawet dużym, znanym serwisom zdarza się zapomnieć o przedłużeniu certyfikatu i wtedy ten sam komunikat pojawia się u nich. Gdy opiszemy AI całą sytuację, czyli że to szkolna platforma, którą poleca nauczyciel, a certyfikat jest wystawiony samodzielnie, odpowiedź wygląda już zupełnie inaczej.</p>
+      <p>Poniżej moja rozmowa z asystentem AI (Claude). Poprawiłem w niej tylko literówki.</p>
+    </div>
+
+    <figure class="infographic reveal" aria-labelledby="cap-ai">
+      <div class="chat-window">
+        <div class="chat-bar" aria-hidden="true"><i></i><i></i><i></i><span>Rozmowa z AI</span></div>
+        <div class="chat-body">
+          <div class="chat-tag bad-tag">Pytanie 1: bez kontekstu</div>
+          <div class="msg me" style="--d:.2s">Czy wchodzenie na stronę, na której otrzymuję komunikat, że połączenie nie jest prywatne, bo strona ma nieprawidłowy certyfikat, jest bezpieczne?</div>
+          <div class="msg ai bad-msg" style="--d:.8s">
+            <p><b>Zazwyczaj nie warto.</b> Ten komunikat oznacza, że przeglądarka nie może potwierdzić tożsamości strony, więc połączenie może być przechwycone lub podmienione (np. przez fałszywą stronę lub atak w publicznej sieci Wi‑Fi).</p>
+            <p><b>Kiedy na pewno nie wchodzić:</b></p>
+            <ul>
+              <li>strony banków, sklepów, poczty, portali społecznościowych, ogólnie wszędzie, gdzie się logujesz lub podajesz dane albo kartę,</li>
+              <li>gdy błąd pojawia się na znanej stronie, która wcześniej działała normalnie,</li>
+              <li>gdy jesteś w publicznym Wi‑Fi (kawiarnia, lotnisko).</li>
+            </ul>
+            <p><b>Kiedy ryzyko jest niewielkie:</b></p>
+            <ul>
+              <li>własne urządzenia w sieci domowej (router, drukarka, NAS), które często mają certyfikat „samopodpisany”,</li>
+              <li>strona tylko do czytania, bez logowania i podawania danych, i wiesz, że to właściwy adres.</li>
+            </ul>
+            <p><b>Co sprawdzić:</b></p>
+            <ul>
+              <li>czy data i godzina w telefonie/komputerze są poprawne (zła data często wywołuje ten błąd),</li>
+              <li>czy adres strony jest dokładnie taki, jak powinien (literówki = podejrzane),</li>
+              <li>czy błąd znika w innej sieci (np. na danych komórkowych zamiast Wi‑Fi).</li>
+            </ul>
+            <p>Jeśli to ważna strona i błąd się utrzymuje, lepiej odpuścić i spróbować później albo skontaktować się z jej właścicielem.</p>
+          </div>
+
+          <div class="chat-tag ok-tag">Pytanie 2: z kontekstem</div>
+          <div class="msg me" style="--d:1.4s">A jeśli strona to szkolny serwis do odczytywania zadań z informatyki, logowanie odbywa się przez konto Microsoft, a Pan od informatyki powiedział, że szkoła nie ma certyfikatu dla tej podstrony, to czy nadal jest to niebezpieczne?</div>
+          <div class="msg ai ok-msg" style="--d:2s">
+            <p><b>W takiej sytuacji ryzyko jest niewielkie</b>, jeśli nauczyciel to potwierdził i znasz właściwy adres strony. Szkoły często mają wewnętrzne serwisy bez poprawnego certyfikatu.</p>
+            <p><b>Najważniejsze jest, gdzie wpisujesz hasło do konta Microsoft:</b></p>
+            <ul>
+              <li><b>Bezpiecznie:</b> po kliknięciu „zaloguj” zostajesz przekierowany na stronę Microsoftu (adres zaczyna się od <code>login.microsoftonline.com</code> lub <code>login.live.com</code>) i tam nie ma ostrzeżenia, a jest normalna kłódka. Wtedy hasło trafia do Microsoftu, nie do szkolnej strony.</li>
+              <li><b>Niebezpiecznie:</b> okienko logowania Microsoft pojawia się na stronie z ostrzeżeniem o certyfikacie. Wtedy nie wpisuj hasła, bo ktoś mógłby je przechwycić.</li>
+            </ul>
+            <p><b>Dodatkowo:</b></p>
+            <ul>
+              <li>upewnij się, że adres jest dokładnie ten, który podał nauczyciel,</li>
+              <li>najlepiej wchodź z sieci domowej lub szkolnej, a nie z publicznego Wi‑Fi,</li>
+              <li>jeśli masz wątpliwości, zapytaj nauczyciela, czy logowanie przekierowuje do Microsoftu.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <figcaption id="cap-ai">Ta sama sztuczna inteligencja, podobne pytanie. Odpowiedź zmienia się, gdy AI zna kontekst.</figcaption>
+    </figure>
+
+    <!-- 2.7 Czego kłódka nie mówi -->
+    <h3 class="step-title reveal"><span>7</span> Kłódka to nie gwarancja bezpieczeństwa</h3>
+    <div class="prose reveal">
+      <p>„Zielona kłódka” daje dziś w dużej mierze pozorne poczucie bezpieczeństwa. Fałszywe strony bez problemu dostają darmowe certyfikaty. A jeśli ktoś włamie się na prawdziwą stronę i umieści na niej coś złośliwego, kłódka nadal będzie widoczna.</p>
+    </div>
+
+    <figure class="infographic reveal" aria-labelledby="cap-klodka">
+      <div class="checklist">
+        <div class="yes">
+          <h4>🔒 Kłódka oznacza</h4>
+          <ul>
+            <li>połączenie jest szyfrowane</li>
+            <li>zaufany wystawca potwierdził, że ktoś kontroluje ten adres</li>
+          </ul>
+        </div>
+        <div class="no">
+          <h4>Kłódka NIE oznacza</h4>
+          <ul>
+            <li>że strona jest uczciwa</li>
+            <li>że nie ma na niej wirusów</li>
+            <li>że strona nie została zhakowana</li>
+          </ul>
+        </div>
+      </div>
+      <figcaption id="cap-klodka">Nawet gdy edutrack dostanie certyfikat od zaufanego wystawcy, nie zmieni to tego, co jest na stronie.</figcaption>
+    </figure>
+
+    <!-- 2.8 Bezpieczne nawyki -->
+    <h3 class="step-title reveal"><span>8</span> Co realnie chroni komputer w domu</h3>
+    <div class="habits reveal">
+      <div class="habit"><span aria-hidden="true">🔄</span><b>Aktualizacje</b><small>systemu i przeglądarki, włączone automatycznie.</small></div>
+      <div class="habit"><span aria-hidden="true">🛡️</span><b>Program antywirusowy</b><small>wbudowany w Windows Defender w zupełności wystarcza.</small></div>
+      <div class="habit"><span aria-hidden="true">👤</span><b>Osobne konto dla dziecka</b><small>bez uprawnień administratora, więc nic nie zainstaluje samo.</small></div>
+      <div class="habit"><span aria-hidden="true">🔗</span><b>Sprawdzony adres</b><small>otwierajcie platformę z adresu podanego przez nauczyciela, najlepiej z zakładki.</small></div>
+      <div class="habit"><span aria-hidden="true">📦</span><b>Ostrożnie z plikami</b><small>nie uruchamiajcie pobranych programów (.exe) z nieznanych źródeł.</small></div>
+      <div class="habit"><span aria-hidden="true">💾</span><b>Kopia na pendrive</b><small>zrzuty ekranu i załączniki do zadań zapisane lokalnie przydadzą się, gdy platforma nie działa.</small></div>
+    </div>
+
+    <div class="aside reveal">
+      <b>Dobra wiadomość:</b> istnieją darmowe i automatyczne sposoby wystawiania zaufanych certyfikatów (np. Let’s Encrypt). Gdyby platforma z nich skorzystała, ostrzeżenie zniknęłoby także na komputerach w domu.
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Stronę przygotował <b>Janusz Szwab</b>, rodzic ucznia klasy 4, zawodowo zajmujący się m.in. udostępnianiem aplikacji internetowych w internecie. Część 1 to moja prywatna opinia.</p>
+    <p class="small">edu.jszwab.site</p>
+  </div>
+</footer>
+
+<script>
+  // Siatka pikseli do infografiki „grafika rastrowa”
+  (function () {
+    var g = document.getElementById('px');
+    if (!g) return;
+    var heart = ["0110110", "1111111", "1111111", "0111110", "0011100", "0001000"];
+    var size = 10, ox = 5, oy = 10, ns = 'http://www.w3.org/2000/svg', i = 0;
+    heart.forEach(function (row, y) {
+      row.split('').forEach(function (c, x) {
+        var r = document.createElementNS(ns, 'rect');
+        r.setAttribute('x', ox + x * size);
+        r.setAttribute('y', oy + y * size);
+        r.setAttribute('width', size - 1);
+        r.setAttribute('height', size - 1);
+        r.setAttribute('class', c === '1' ? 'p on' : 'p');
+        r.style.animationDelay = (i++ * 0.04) + 's';
+        g.appendChild(r);
+      });
+    });
+  })();
+
+  // Pojawianie się elementów przy przewijaniu
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (e) { e.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
+</body>
+</html>
