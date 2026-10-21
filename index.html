@@ -254,8 +254,26 @@
       <figcaption id="cap-self">Ta sama strona, ten sam certyfikat. Różni się tylko lista zaufanych wystawców na komputerze.</figcaption>
     </figure>
 
-    <!-- 2.6 Kontekst i AI -->
-    <h3 class="step-title reveal"><span>6</span> „Przecież AI mówi, że ta strona jest niebezpieczna”</h3>
+    <!-- 2.6 Hasło i logowanie Microsoft -->
+    <h3 class="step-title reveal"><span>6</span> A co z hasłem dziecka?</h3>
+    <div class="prose reveal">
+      <p>Niektórym może się wydawać, że zapewnienie Pana od informatyki, że strona jest bezpieczna i nie podajemy na niej żadnych wrażliwych danych, jest nieprawdziwe. Przecież dzieci się tam logują, czyli podają hasło.</p>
+      <p>Tak naprawdę hasło wpisuje się <b>na stronie Microsoftu</b>, a tam jest już poprawny certyfikat od zaufanego wystawcy. Po kliknięciu „Zaloguj” przeglądarka przechodzi na adres Microsoftu (<code>login.microsoftonline.com</code>), dziecko podaje tam hasło, a Microsoft odsyła do edutrack tylko potwierdzenie, kto się zalogował. <b>Edutrack nie otrzymuje hasła</b> od użytkownika.</p>
+    </div>
+
+    <figure class="infographic reveal" aria-labelledby="cap-login">
+      <ol class="login-flow">
+        <li class="lf-step"><span class="lf-ico" aria-hidden="true">🧒</span><b>Dziecko</b><small>klika „Zaloguj” na edutrack</small></li>
+        <li class="lf-step warn-step"><span class="lf-ico" aria-hidden="true">⚠️</span><b>edutrack</b><small>przekierowuje do Microsoftu</small></li>
+        <li class="lf-step ok-step"><span class="lf-ico" aria-hidden="true">🔒</span><b>Microsoft</b><small>tu wpisuje się hasło<br><code>login.microsoftonline.com</code></small></li>
+        <li class="lf-step"><span class="lf-ico" aria-hidden="true">🎫</span><b>edutrack</b><small>dostaje tylko potwierdzenie „to jest ten uczeń”, bez hasła</small></li>
+      </ol>
+      <div class="pw-note"><span aria-hidden="true">🔑</span> Hasło trafia wyłącznie do Microsoftu, przez połączenie z poprawnym certyfikatem.</div>
+      <figcaption id="cap-login">Logowanie przez konto Microsoft: hasło nigdy nie trafia na stronę z ostrzeżeniem.</figcaption>
+    </figure>
+
+    <!-- 2.7 Kontekst i AI -->
+    <h3 class="step-title reveal"><span>7</span> „Przecież AI mówi, że ta strona jest niebezpieczna”</h3>
     <div class="prose reveal">
       <p>Miałem kilka rozmów o bezpieczeństwie platformy edutrack i często pojawiał się ten argument: sztuczna inteligencja potwierdziła, że strona jest niebezpieczna. Tyle że odpowiedź AI zależy od tego, o co i jak zapytamy. Kluczowy jest <b>kontekst</b>.</p>
       <p>Ostrzeżenie o certyfikacie na stronie, na której się go nie spodziewamy, rzeczywiście jest podejrzane. Ale nawet dużym, znanym serwisom zdarza się zapomnieć o przedłużeniu certyfikatu i wtedy ten sam komunikat pojawia się u nich. Gdy opiszemy AI całą sytuację, czyli że to szkolna platforma, którą poleca nauczyciel, a certyfikat jest wystawiony samodzielnie, odpowiedź wygląda już zupełnie inaczej.</p>
@@ -311,8 +329,8 @@
       <figcaption id="cap-ai">Ta sama sztuczna inteligencja, podobne pytanie. Odpowiedź zmienia się, gdy AI zna kontekst.</figcaption>
     </figure>
 
-    <!-- 2.7 Czego kłódka nie mówi -->
-    <h3 class="step-title reveal"><span>7</span> Kłódka to nie gwarancja bezpieczeństwa</h3>
+    <!-- 2.8 Czego kłódka nie mówi -->
+    <h3 class="step-title reveal"><span>8</span> Kłódka to nie gwarancja bezpieczeństwa</h3>
     <div class="prose reveal">
       <p>„Zielona kłódka” daje dziś w dużej mierze pozorne poczucie bezpieczeństwa. Fałszywe strony bez problemu dostają darmowe certyfikaty. A jeśli ktoś włamie się na prawdziwą stronę i umieści na niej coś złośliwego, kłódka nadal będzie widoczna.</p>
     </div>
@@ -338,8 +356,8 @@
       <figcaption id="cap-klodka">Nawet gdy edutrack dostanie certyfikat od zaufanego wystawcy, nie zmieni to tego, co jest na stronie.</figcaption>
     </figure>
 
-    <!-- 2.8 Bezpieczne nawyki -->
-    <h3 class="step-title reveal"><span>8</span> Co realnie chroni komputer w domu</h3>
+    <!-- 2.9 Bezpieczne nawyki -->
+    <h3 class="step-title reveal"><span>9</span> Co realnie chroni komputer w domu</h3>
     <div class="habits reveal">
       <div class="habit"><span aria-hidden="true">🔄</span><b>Aktualizacje</b><small>systemu i przeglądarki, włączone automatycznie.</small></div>
       <div class="habit"><span aria-hidden="true">🛡️</span><b>Program antywirusowy</b><small>wbudowany w Windows Defender w zupełności wystarcza.</small></div>
@@ -349,9 +367,6 @@
       <div class="habit"><span aria-hidden="true">💾</span><b>Kopia na pendrive</b><small>zrzuty ekranu i załączniki do zadań zapisane lokalnie przydadzą się, gdy platforma nie działa.</small></div>
     </div>
 
-    <div class="aside reveal">
-      <b>Dobra wiadomość:</b> istnieją darmowe i automatyczne sposoby wystawiania zaufanych certyfikatów (np. Let’s Encrypt). Gdyby platforma z nich skorzystała, ostrzeżenie zniknęłoby także na komputerach w domu.
-    </div>
   </div>
 </section>
 
@@ -359,7 +374,6 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <p>Stronę przygotował <b>Janusz Szwab</b>, rodzic ucznia klasy 4, zawodowo zajmujący się m.in. udostępnianiem aplikacji internetowych w internecie. Część 1 to moja prywatna opinia.</p>
     <p class="small">edu.jszwab.site</p>
   </div>
 </footer>

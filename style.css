@@ -320,3 +320,31 @@ h1, h2, h3, h4 { line-height: 1.25; }
 @media (max-width: 680px) { .msg { max-width: 100%; } .chat-body { padding: 12px; } }
 @media (prefers-reduced-motion: reduce) { .msg { opacity: 1 !important; transform: none !important; } }
 @media (prefers-color-scheme: dark) { .msg.me { color: #0b1a33; } }
+
+/* ---------- Logowanie przez Microsoft ---------- */
+.login-flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.lf-step {
+  position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px;
+  padding: 14px 8px; border-radius: 12px; background: var(--bg-alt); opacity: 0; transform: translateY(12px);
+}
+.lf-step small { color: var(--muted); font-size: .82rem; line-height: 1.35; }
+.lf-step code { font-size: .72rem; }
+.lf-ico { font-size: 1.8rem; }
+.warn-step { background: var(--bad-soft); }
+.ok-step { background: var(--ok-soft); outline: 2px solid var(--ok); }
+.lf-step:not(:last-child)::after {
+  content: "→"; position: absolute; right: -11px; top: 50%; transform: translateY(-50%);
+  color: var(--accent); font-weight: 800; z-index: 1;
+}
+.reveal.in .lf-step { animation: rise .5s ease-out forwards; }
+.reveal.in .lf-step:nth-child(2) { animation-delay: .35s; }
+.reveal.in .lf-step:nth-child(3) { animation-delay: .7s; }
+.reveal.in .lf-step:nth-child(4) { animation-delay: 1.05s; }
+.pw-note { margin-top: 16px; padding: 12px 16px; border-radius: 12px; background: var(--ok-soft); font-weight: 600; text-align: center; }
+.pw-note span { display: inline-block; animation: lock 3s ease-in-out infinite; }
+.prose code { font-size: .88em; padding: 1px 5px; border-radius: 4px; background: var(--accent-soft); }
+@media (max-width: 680px) {
+  .login-flow { grid-template-columns: 1fr; gap: 22px; }
+  .lf-step:not(:last-child)::after { content: "↓"; right: auto; left: 50%; top: auto; bottom: -16px; transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) { .lf-step { opacity: 1 !important; transform: none !important; } }
