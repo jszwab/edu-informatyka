@@ -1,0 +1,11 @@
+{
+  // Konfiguracja Cloudflare Workers dla statycznej strony (bez kroku budowania)
+  "name": "edu-informatyka",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": ".",
+    "not_found_handling": "404-page"
+  },
+  // Wymagane przez `npx wrangler preview` (podglądy gałęzi innych niż main)
+  "previews": {}
+}
