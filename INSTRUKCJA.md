@@ -1,4 +1,4 @@
-# Publikacja strony na edu.jszwab.site – krok po kroku
+# Publikacja strony na edu-informatyka.jszwab.site – krok po kroku
 
 Całość zajmuje ok. 15 minut. Potrzebne: konto GitHub i konto Cloudflare (to, na którym jest domena jszwab.site).
 
@@ -49,14 +49,14 @@ git push -u origin main
    - **Build output directory:** `/`
 7. **Save and Deploy**. Po ok. minucie strona działa pod `https://edu-informatyka.pages.dev`. Sprawdź ją.
 
-## Krok 4. Ustaw domenę edu.jszwab.site
+## Krok 4. Ustaw domenę edu-informatyka.jszwab.site
 
 1. W projekcie `edu-informatyka` (Workers & Pages) otwórz zakładkę **Custom domains**.
-2. **Set up a custom domain** → wpisz `edu.jszwab.site` → **Continue**.
+2. **Set up a custom domain** → wpisz `edu-informatyka.jszwab.site` → **Continue**.
 3. Ponieważ DNS domeny jest w Cloudflare, rekord CNAME doda się sam. Kliknij **Activate domain**.
 4. Po kilku minutach (czasem do kilkunastu) status zmieni się na **Active**, a certyfikat HTTPS włączy się automatycznie.
 
-Ważne: **nie dodawaj ręcznie rekordu CNAME w DNS przed tym krokiem**. Sam rekord bez podpięcia w Pages kończy się błędem 522. Jeśli taki rekord dla `edu` już istnieje, usuń go i dodaj domenę przez Custom domains.
+Ważne: **nie dodawaj ręcznie rekordu CNAME w DNS przed tym krokiem**. Sam rekord bez podpięcia w Pages kończy się błędem 522. Jeśli taki rekord dla `edu-informatyka` już istnieje, usuń go i dodaj domenę przez Custom domains.
 
 ## Krok 5. Gotowe. Jak wprowadzać zmiany?
 
@@ -70,6 +70,6 @@ Ważne: **nie dodawaj ręcznie rekordu CNAME w DNS przed tym krokiem**. Sam reko
 | Objaw | Co zrobić |
 |---|---|
 | Nie widać repo przy łączeniu z GitHub | GitHub → Settings → Applications → Cloudflare Pages → Configure → dodaj repo `edu-informatyka`. |
-| Błąd 522 na edu.jszwab.site | Usuń ręczny rekord CNAME `edu` w DNS i dodaj domenę jeszcze raz przez **Custom domains**. |
-| Domena długo „Pending” | Odczekaj do 30 min; sprawdź, czy w DNS jest CNAME `edu` → `edu-informatyka.pages.dev` (pomarańczowa chmurka). |
+| Błąd 522 na edu-informatyka.jszwab.site | Usuń ręczny rekord CNAME `edu-informatyka` w DNS i dodaj domenę jeszcze raz przez **Custom domains**. |
+| Domena długo „Pending” | Odczekaj do 30 min; sprawdź, czy w DNS jest CNAME `edu-informatyka` → `edu-informatyka.pages.dev` (pomarańczowa chmurka). |
 | Strona bez stylów | Sprawdź, czy `style.css` leży w głównym folderze repo, obok `index.html`. |
