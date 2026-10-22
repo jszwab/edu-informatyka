@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Informatyka w klasie 4 i kłódka w przeglądarce (komiks)</title>
+  <link rel="canonical" href="https://edu-informatyka.jszwab.site/komiks/">
+  <meta name="description" content="Informatyka w klasie 4: moja subiektywna opinia jako rodzica i osoby, która zawodowo zajmuje się informatyką, oraz wyjaśnienie, czym jest certyfikat SSL/TLS i komunikat o niezaufanym certyfikacie.">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Patrick+Hand&display=swap">
+  <link rel="stylesheet" href="komiks.css">
+</head>
+<body>
+
+<!-- Postacie komiksu (rysowane raz, używane wiele razy przez <use>) -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- Pan od informatyki -->
+    <symbol id="ch-teacher" viewBox="0 0 120 150">
+      <g class="ln">
+        <rect x="52" y="80" width="16" height="22" class="sk"/>
+        <path d="M18 150 C18 112 34 98 60 98 C86 98 102 112 102 150 Z" class="f-teacher"/>
+        <path d="M47 98 L60 116 L73 98 Z" class="f-white"/>
+        <path d="M60 112 L55 132 L60 141 L65 132 Z" class="f-red"/>
+        <circle cx="28" cy="58" r="6" class="sk"/><circle cx="92" cy="58" r="6" class="sk"/>
+        <circle cx="60" cy="54" r="32" class="sk"/>
+        <path d="M28 52 C24 24 44 15 60 15 C80 15 98 26 92 52 C88 40 76 33 60 34 C46 34 34 40 28 52 Z" class="f-hair"/>
+        <circle cx="47" cy="58" r="10" class="f-glass"/><circle cx="73" cy="58" r="10" class="f-glass"/>
+        <path d="M57 58 H63 M37 56 L30 54 M83 56 L90 54" class="nofill"/>
+        <circle cx="47" cy="58" r="2.8" class="f-ink"/><circle cx="73" cy="58" r="2.8" class="f-ink"/>
+        <path d="M49 74 Q60 83 71 74" class="nofill"/>
+      </g>
+    </symbol>
+
+    <!-- Tata (autor) -->
+    <symbol id="ch-dad" viewBox="0 0 120 150">
+      <g class="ln">
+        <rect x="52" y="80" width="16" height="22" class="sk"/>
+        <path d="M18 150 C18 112 34 98 60 98 C86 98 102 112 102 150 Z" class="f-dad"/>
+        <path d="M44 99 Q60 112 76 99" class="nofill"/>
+        <path d="M50 130 V150 M70 130 V150" class="nofill thin"/>
+        <circle cx="28" cy="58" r="6" class="sk"/><circle cx="92" cy="58" r="6" class="sk"/>
+        <circle cx="60" cy="54" r="32" class="sk"/>
+        <path d="M28 52 C24 22 46 14 62 16 C82 18 96 30 92 52 L86 40 L78 44 L70 34 L60 40 L50 32 L42 42 L34 38 Z" class="f-hair2"/>
+        <circle cx="48" cy="57" r="3" class="f-ink"/><circle cx="72" cy="57" r="3" class="f-ink"/>
+        <path d="M42 48 Q48 45 54 48 M66 48 Q72 45 78 48" class="nofill"/>
+        <path d="M50 71 Q60 80 70 71" class="nofill"/>
+      </g>
+    </symbol>
+
+    <!-- Córka -->
+    <symbol id="ch-kid" viewBox="0 0 120 150">
+      <g class="ln">
+        <path d="M88 46 C112 40 114 72 100 88 C104 68 98 58 88 58 Z" class="f-kidhair"/>
+        <path d="M32 46 C8 40 6 72 20 88 C16 68 22 58 32 58 Z" class="f-kidhair"/>
+        <rect x="53" y="88" width="14" height="20" class="sk"/>
+        <path d="M26 150 C26 118 40 106 60 106 C80 106 94 118 94 150 Z" class="f-kid"/>
+        <circle cx="60" cy="64" r="30" class="sk"/>
+        <path d="M30 62 C28 34 44 28 60 28 C78 28 94 36 90 62 C84 48 72 44 62 48 C56 42 40 46 30 62 Z" class="f-kidhair"/>
+        <path d="M80 32 L90 26 L92 38 Z M80 32 L70 26 L70 38 Z" class="f-red"/>
+        <circle cx="49" cy="67" r="3.6" class="f-ink"/><circle cx="71" cy="67" r="3.6" class="f-ink"/>
+        <circle cx="42" cy="76" r="4" class="f-cheek" stroke="none"/><circle cx="78" cy="76" r="4" class="f-cheek" stroke="none"/>
+        <path d="M52 79 Q60 86 68 79" class="nofill"/>
+      </g>
+    </symbol>
+
+    <!-- Przeglądarka -->
+    <symbol id="ch-browser" viewBox="0 0 120 120">
+      <g class="ln">
+        <path d="M40 96 V112 H30 M80 96 V112 H90" class="nofill"/>
+        <rect x="8" y="10" width="104" height="86" rx="12" class="f-browser"/>
+        <path d="M8 30 H112" class="nofill"/>
+        <circle cx="20" cy="20" r="3.5" class="f-red"/><circle cx="31" cy="20" r="3.5" class="f-gold"/><circle cx="42" cy="20" r="3.5" class="f-green"/>
+        <rect x="52" y="15" width="52" height="10" rx="5" class="f-white"/>
+        <circle cx="44" cy="58" r="10" class="f-white"/><circle cx="76" cy="58" r="10" class="f-white"/>
+        <circle cx="46" cy="60" r="4.5" class="f-ink"/><circle cx="78" cy="60" r="4.5" class="f-ink"/>
+        <path d="M48 78 Q60 88 72 78" class="nofill"/>
+      </g>
+    </symbol>
+
+    <!-- Strona internetowa -->
+    <symbol id="ch-site" viewBox="0 0 120 120">
+      <g class="ln">
+        <path d="M44 104 V114 H34 M78 104 V114 H88 M20 64 L6 80 M102 64 L114 78" class="nofill"/>
+        <path d="M20 8 H82 L102 28 V104 H20 Z" class="f-white"/>
+        <path d="M82 8 V28 H102" class="f-paper2"/>
+        <path d="M30 22 H66 M30 32 H58" class="nofill thin faded"/>
+        <circle cx="48" cy="58" r="4" class="f-ink"/><circle cx="76" cy="58" r="4" class="f-ink"/>
+        <circle cx="40" cy="70" r="4" class="f-cheek" stroke="none"/><circle cx="84" cy="70" r="4" class="f-cheek" stroke="none"/>
+        <path d="M52 74 Q62 83 72 74" class="nofill"/>
+      </g>
+    </symbol>
+
+    <!-- Fałszywa strona -->
+    <symbol id="ch-fake" viewBox="0 0 120 120">
+      <g class="ln">
+        <path d="M44 104 V114 H34 M78 104 V114 H88 M20 64 L6 52" class="nofill"/>
+        <path d="M20 8 H82 L102 28 V104 H20 Z" class="f-fake"/>
+        <path d="M82 8 V28 H102" class="f-paper2"/>
+        <path d="M38 46 L54 52 M86 46 L70 52" class="nofill"/>
+        <circle cx="48" cy="58" r="3.6" class="f-ink"/><circle cx="76" cy="58" r="3.6" class="f-ink"/>
+        <path d="M44 72 Q52 66 62 71 Q72 66 80 72 Q72 76 62 73 Q52 76 44 72 Z" class="f-ink"/>
+        <path d="M52 84 Q62 90 74 82" class="nofill"/>
+        <g transform="translate(92 56)">
+          <rect x="0" y="12" width="26" height="22" rx="4" class="f-gold"/>
+          <path d="M5 12 V7 a8 8 0 0 1 16 0 V12" class="nofill"/>
+        </g>
+      </g>
+    </symbol>
+
+    <!-- Urząd certyfikacji -->
+    <symbol id="ch-ca" viewBox="0 0 120 120">
+      <g class="ln">
+        <rect x="16" y="40" width="88" height="62" class="f-white"/>
+        <path d="M30 48 V98 M90 48 V98" class="nofill colm"/>
+        <path d="M8 40 L60 8 L112 40 Z" class="f-ca"/>
+        <circle cx="60" cy="28" r="5" class="f-gold"/>
+        <rect x="8" y="100" width="104" height="10" rx="2" class="f-ca"/>
+        <path d="M40 56 Q47 52 54 56 M66 56 Q73 52 80 56" class="nofill"/>
+        <circle cx="47" cy="64" r="3.6" class="f-ink"/><circle cx="73" cy="64" r="3.6" class="f-ink"/>
+        <path d="M50 80 Q60 88 70 80" class="nofill"/>
+      </g>
+    </symbol>
+
+    <!-- Asystent AI -->
+    <symbol id="ch-ai" viewBox="0 0 120 120">
+      <g class="ln">
+        <path d="M60 8 V22" class="nofill"/>
+        <circle cx="60" cy="8" r="5" class="f-red"/>
+        <rect x="8" y="44" width="12" height="22" rx="3" class="f-ai"/><rect x="100" y="44" width="12" height="22" rx="3" class="f-ai"/>
+        <rect x="34" y="88" width="52" height="26" rx="8" class="f-ai"/>
+        <rect x="18" y="22" width="84" height="66" rx="18" class="f-ai"/>
+        <rect x="34" y="40" width="18" height="18" rx="5" class="f-white"/><rect x="68" y="40" width="18" height="18" rx="5" class="f-white"/>
+        <circle cx="45" cy="50" r="4" class="f-ink"/><circle cx="79" cy="50" r="4" class="f-ink"/>
+        <rect x="42" y="68" width="36" height="9" rx="4.5" class="f-white"/>
+        <path d="M51 68 V77 M60 68 V77 M69 68 V77" class="nofill thin"/>
+      </g>
+    </symbol>
+
+    <!-- Podglądacz -->
+    <symbol id="ch-spy" viewBox="0 0 120 120">
+      <g class="ln">
+        <path d="M20 120 C20 90 36 78 60 78 C84 78 100 90 100 120 Z" class="f-coat"/>
+        <path d="M40 84 L46 62 L60 78 L74 62 L80 84" class="f-coat"/>
+        <circle cx="60" cy="54" r="24" class="sk"/>
+        <path d="M38 40 C38 20 46 12 60 12 C74 12 82 20 82 40 Z" class="f-hat"/>
+        <path d="M22 40 H98" class="nofill thick"/>
+        <ellipse cx="50" cy="54" rx="7.5" ry="8.5" class="f-white"/><ellipse cx="70" cy="54" rx="7.5" ry="8.5" class="f-white"/>
+        <circle cx="54" cy="55" r="3.6" class="f-ink"/><circle cx="74" cy="55" r="3.6" class="f-ink"/>
+        <path d="M46 68 Q60 60 74 68 Q60 73 46 68 Z" class="f-hat"/>
+      </g>
+    </symbol>
+
+    <!-- Kłódka -->
+    <symbol id="ic-lock" viewBox="0 0 100 100">
+      <g class="ln">
+        <path d="M30 46 V32 a20 20 0 0 1 40 0 V46" class="nofill thick"/>
+        <rect x="18" y="44" width="64" height="48" rx="9" class="f-gold"/>
+        <circle cx="50" cy="64" r="6" class="f-ink"/>
+        <path d="M50 66 V78" class="nofill thick"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ===================== OKŁADKA ===================== -->
+<header class="cover">
+  <div class="wrap">
+    <div class="cover-panel">
+      <div class="cover-top">
+        <span class="badge">Dla rodziców uczniów klasy 4</span>
+        <span class="issue">Komiks dla rodziców</span>
+      </div>
+      <h1>Informatyka w klasie 4<span>i kłódka w przeglądarce</span></h1>
+      <div class="cover-art" aria-hidden="true">
+        <span class="sfx sfx-klik">KLIK!</span>
+        <div class="actor"><svg class="ch"><use href="#ch-teacher"/></svg></div>
+        <div class="actor"><svg class="ch ch-kid"><use href="#ch-kid"/></svg></div>
+        <div class="actor"><svg class="ch ch-sq"><use href="#ch-browser"/></svg></div>
+        <svg class="cover-lock"><use href="#ic-lock"/></svg>
+      </div>
+      <p class="lead cap">Dwie sprawy, o których dużo ostatnio rozmawiamy: jak wyglądają dziś lekcje informatyki i co tak naprawdę oznacza ostrzeżenie o certyfikacie na platformie z zadaniami.</p>
+      <nav class="toc" aria-label="Spis treści">
+        <a href="#czesc-1"><b>1</b> Informatyka dziś</a>
+        <a href="#czesc-2"><b>2</b> Certyfikaty i kłódka</a>
+        <a href="../" class="toc-classic">Wersja klasyczna</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ===================== CZĘŚĆ 1 ===================== -->
+<section id="czesc-1" class="chapter">
+  <div class="wrap">
+    <header class="chapter-head reveal">
+      <p class="part-no">Część 1</p>
+      <h2>Wymagająca informatyka to dobra informatyka</h2>
+      <p class="note">To moja subiektywna opinia jako rodzica i osoby, która zawodowo zajmuje się informatyką.</p>
+    </header>
+
+    <div class="strip c2">
+      <div class="panel reveal">
+        <p class="cap">Uważam, że nasz Pan od informatyki prowadzi zajęcia na wysokim poziomie.</p>
+        <div class="scene sc-class" aria-hidden="true">
+          <div class="board">
+            <svg viewBox="0 0 120 80" class="algo">
+              <rect x="10" y="8"  width="70" height="16" rx="5" class="blk b1"/>
+              <rect x="22" y="30" width="80" height="16" rx="5" class="blk b2"/>
+              <rect x="22" y="52" width="60" height="16" rx="5" class="blk b3"/>
+            </svg>
+          </div>
+          <div class="actor"><svg class="ch"><use href="#ch-teacher"/></svg></div>
+        </div>
+      </div>
+      <div class="panel reveal">
+        <p class="cap">Wysoki poziom ma swoją cenę: wymaga pracy w domu. Tak jest z każdym wymagającym przedmiotem. Jeśli dziecko ma naprawdę zrozumieć tematy przerabiane na lekcji, sama praca w szkole nie wystarczy.</p>
+        <div class="scene sc-home" aria-hidden="true">
+          <span class="moon">🌙</span>
+          <div class="actor"><svg class="ch"><use href="#ch-dad"/></svg></div>
+          <div class="actor"><span class="think">?</span><svg class="ch ch-kid"><use href="#ch-kid"/></svg></div>
+          <span class="desk">💻</span>
+        </div>
+      </div>
+    </div>
+
+    <figure class="panel wide reveal" aria-labelledby="cap-kiedys">
+      <p class="cap">Dzisiejsza informatyka to już nie to, co za naszych szkolnych czasów. Wtedy uczyliśmy się głównie obsługi Worda i Excela. Dziś dochodzi do tego nauka myślenia algorytmicznego, grafika rastrowa czy praca w chmurze.</p>
+      <div class="then-now">
+        <div class="col then">
+          <h3>Kiedyś</h3>
+          <svg viewBox="0 0 120 100" class="crt" aria-hidden="true">
+            <rect x="10" y="6" width="100" height="70" rx="8" class="crt-body"/>
+            <rect x="20" y="14" width="80" height="52" rx="4" class="crt-screen"/>
+            <path d="M28 26 H72 M28 34 H80 M28 42 H64 M28 50 H76" class="crt-txt"/>
+            <rect x="44" y="76" width="32" height="8" class="crt-body"/>
+            <rect x="26" y="84" width="68" height="9" rx="2" class="crt-body"/>
+          </svg>
+          <ul class="chips">
+            <li><span class="ico" aria-hidden="true">📝</span>Edytor tekstu</li>
+            <li><span class="ico" aria-hidden="true">📊</span>Arkusz kalkulacyjny</li>
+          </ul>
+        </div>
+        <div class="vs" aria-hidden="true">WOW!</div>
+        <div class="col now">
+          <h3>Dziś</h3>
+          <ul class="tiles">
+            <li class="tile">
+              <svg viewBox="0 0 120 80" aria-hidden="true" class="algo">
+                <rect x="10" y="8"  width="70" height="16" rx="5" class="blk b1"/>
+                <rect x="22" y="30" width="80" height="16" rx="5" class="blk b2"/>
+                <rect x="22" y="52" width="60" height="16" rx="5" class="blk b3"/>
+              </svg>
+              <b>Myślenie algorytmiczne</b>
+              <small>Rozkładanie problemu na kroki, pierwsze programy z klocków.</small>
+            </li>
+            <li class="tile">
+              <svg viewBox="0 0 80 80" aria-hidden="true" class="pixels">
+                <g id="px"></g>
+              </svg>
+              <b>Grafika rastrowa</b>
+              <small>Obraz złożony z pikseli, warstwy, rozdzielczość.</small>
+            </li>
+            <li class="tile">
+              <svg viewBox="0 0 120 80" aria-hidden="true" class="cloud">
+                <path d="M30 58 a16 16 0 0 1 2-32 a22 22 0 0 1 42-6 a18 18 0 0 1 16 38 z" class="cloud-shape"/>
+                <rect x="50" y="40" width="14" height="18" rx="2" class="doc"/>
+              </svg>
+              <b>Chmura</b>
+              <small>Pliki dostępne z każdego miejsca, udostępnianie, wspólna praca.</small>
+            </li>
+            <li class="tile">
+              <svg viewBox="0 0 120 80" aria-hidden="true" class="tree">
+                <rect x="8" y="8" width="30" height="14" rx="3" class="fold"/>
+                <path d="M23 22 V60 M23 38 H48 M23 60 H48" class="branch"/>
+                <rect x="48" y="31" width="30" height="14" rx="3" class="fold f2"/>
+                <rect x="48" y="53" width="30" height="14" rx="3" class="fold f3"/>
+              </svg>
+              <b>Porządek w plikach</b>
+              <small>Foldery, nazwy, zapisywanie i odnajdywanie swojej pracy.</small>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <figcaption id="cap-kiedys" class="cap cap-end">Zakres informatyki w szkole podstawowej jest dziś dużo szerszy niż kiedyś.</figcaption>
+    </figure>
+
+    <figure class="reveal" aria-labelledby="cap-pomoc">
+      <p class="cap cap-block">Pomagamy dzieciom w nauce czytania, pisania i liczenia. Przy informatyce też potrzebują naszej pomocy, szczególnie na początku, gdy wszystko jest nowe.</p>
+      <ol class="strip c4 help-row">
+        <li class="panel mini"><p class="bubble t-down">Aa</p><div class="duo" aria-hidden="true"><svg class="ch xs"><use href="#ch-dad"/></svg><svg class="ch xs ch-kid"><use href="#ch-kid"/></svg></div><b>Czytanie</b></li>
+        <li class="panel mini"><p class="bubble t-down">✎</p><div class="duo" aria-hidden="true"><svg class="ch xs"><use href="#ch-dad"/></svg><svg class="ch xs ch-kid"><use href="#ch-kid"/></svg></div><b>Pisanie</b></li>
+        <li class="panel mini"><p class="bubble t-down">2+2</p><div class="duo" aria-hidden="true"><svg class="ch xs"><use href="#ch-dad"/></svg><svg class="ch xs ch-kid"><use href="#ch-kid"/></svg></div><b>Liczenie</b></li>
+        <li class="panel mini highlight"><p class="bubble t-down">&lt;/&gt;</p><div class="duo" aria-hidden="true"><svg class="ch xs"><use href="#ch-dad"/></svg><svg class="ch xs ch-kid"><use href="#ch-kid"/></svg></div><b>Informatyka</b></li>
+      </ol>
+      <figcaption id="cap-pomoc" class="cap cap-block">Ten sam schemat: dziecko ćwiczy, a rodzic jest obok, gdy trzeba.</figcaption>
+    </figure>
+
+    <div class="strip c-tips">
+      <div class="panel tips reveal">
+        <h3>Jak można pomóc w praktyce</h3>
+        <ul>
+          <li><b>Korzystajcie z podręcznika.</b> Jest w nim dużo informacji potrzebnych do wykonania zadań.</li>
+          <li><b>Poproście, żeby dziecko wam wytłumaczyło</b>, co robiło na lekcji. Tłumaczenie innym to najlepszy sposób, by samemu zrozumieć.</li>
+          <li><b>Czytajcie polecenie krok po kroku</b> i odhaczajcie kolejne punkty.</li>
+          <li><b>Nie róbcie zadania za dziecko.</b> Lepiej zadać pytanie naprowadzające niż kliknąć za nie.</li>
+        </ul>
+      </div>
+      <blockquote class="panel quote-panel reveal">
+        <p class="bubble big t-down">Wiem, że moja opinia jest bardzo subiektywna, ale za moich szkolnych czasów chciałbym mieć takiego nauczyciela.</p>
+        <div class="scene sc-plain" aria-hidden="true">
+          <div class="actor"><svg class="ch"><use href="#ch-dad"/></svg></div>
+        </div>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CZĘŚĆ 2 ===================== -->
+<section id="czesc-2" class="chapter chapter-alt">
+  <div class="wrap">
+    <header class="chapter-head reveal">
+      <p class="part-no">Część 2</p>
+      <h2>Kłódka w przeglądarce, czyli o certyfikatach</h2>
+      <p class="note">Wyjaśnienie bez żargonu: co oznacza „https”, czym jest certyfikat i skąd bierze się ostrzeżenie na platformie edutrack.</p>
+    </header>
+
+    <!-- 2.1 HTTP vs HTTPS -->
+    <h3 class="step-title reveal"><span>1</span> Pocztówka czy zaklejona koperta?</h3>
+    <p class="cap cap-block reveal">Gdy otwieramy stronę, komputer wymienia z nią wiadomości. Przy zwykłym <b>http</b> te wiadomości wędrują jak pocztówka: każdy po drodze może je przeczytać. Przy <b>https</b> są w zaklejonej kopercie, czyli zaszyfrowane. Za to szyfrowanie odpowiada protokół <b>TLS</b> (dawniej SSL, stąd nazwa „certyfikat SSL”).</p>
+    <figure class="reveal" aria-labelledby="cap-http">
+      <div class="strip c2">
+        <div class="panel">
+          <span class="tag bad-tag">http://</span>
+          <p class="bubble t-down spy-bubble">Widzę! „hasło: kot1”</p>
+          <svg viewBox="0 0 320 170" class="transport" role="img" aria-label="http: wiadomość leci jak pocztówka i podglądacz ją czyta">
+            <use href="#ch-spy" x="120" y="0" width="80" height="80"/>
+            <g class="node"><rect x="8" y="100" width="60" height="50" rx="8"/><text x="38" y="134">💻</text></g>
+            <g class="node"><rect x="252" y="100" width="60" height="50" rx="8"/><text x="282" y="134">🏫</text></g>
+            <path d="M72 125 H248" class="lane"/>
+            <g class="traveler">
+              <rect x="0" y="-14" width="68" height="28" rx="3" class="postcard"/>
+              <text x="34" y="4" class="tiny">hasło: kot1</text>
+            </g>
+          </svg>
+        </div>
+        <div class="panel">
+          <span class="tag ok-tag">https://</span>
+          <p class="bubble t-down spy-bubble">Hmm… nic nie widać.</p>
+          <svg viewBox="0 0 320 170" class="transport" role="img" aria-label="https: wiadomość leci w zaklejonej kopercie i podglądacz nic nie widzi">
+            <use href="#ch-spy" x="120" y="0" width="80" height="80"/>
+            <g class="node"><rect x="8" y="100" width="60" height="50" rx="8"/><text x="38" y="134">💻</text></g>
+            <g class="node"><rect x="252" y="100" width="60" height="50" rx="8"/><text x="282" y="134">🏫</text></g>
+            <path d="M72 125 H248" class="lane"/>
+            <g class="traveler t2">
+              <rect x="0" y="-14" width="68" height="28" rx="3" class="envelope"/>
+              <path d="M0 -14 L34 4 L68 -14" class="flap"/>
+              <use href="#ic-lock" x="26" y="-6" width="16" height="16"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <figcaption id="cap-http" class="cap cap-block">https szyfruje wiadomości między naszym komputerem a stroną.</figcaption>
+    </figure>
+
+    <!-- 2.2 Certyfikat -->
+    <h3 class="step-title reveal"><span>2</span> Certyfikat to „legitymacja” strony</h3>
+    <div class="reveal">
+      <div class="strip c2">
+        <div class="panel">
+          <p class="cap">Szyfrowanie to jedno, ale skąd wiemy, że rozmawiamy z właściwą stroną, a nie z kimś, kto się pod nią podszywa? Do tego służy <b>certyfikat</b>. To coś jak legitymacja: mówi „jestem stroną <i>edu.przyklad.pl</i>” i ma podpis kogoś, kto to potwierdził.</p>
+          <div class="scene sc-sky">
+            <div class="actor"><p class="bubble t-down">Kim jesteś?</p><svg class="ch ch-sq" aria-hidden="true"><use href="#ch-browser"/></svg></div>
+            <div class="actor"><p class="bubble t-down">Jestem stroną <i>edu.przyklad.pl</i>. Oto moja legitymacja!</p><svg class="ch ch-sq" aria-hidden="true"><use href="#ch-site"/></svg></div>
+          </div>
+        </div>
+        <figure class="panel" aria-labelledby="cap-cert">
+          <div class="cert-wrap">
+            <div class="cert-card">
+              <div class="cert-head"><span class="lock-anim" aria-hidden="true">🔒</span> Certyfikat</div>
+              <dl>
+                <dt>Dla strony</dt><dd>edu.przyklad.pl</dd>
+                <dt>Wystawił</dt><dd>Zaufany urząd certyfikacji (CA)</dd>
+                <dt>Ważny przez</dt><dd>90 dni</dd>
+              </dl>
+              <div class="stamp" aria-hidden="true">PODPIS<br>CA</div>
+            </div>
+          </div>
+          <figcaption id="cap-cert" class="cap cap-end">Przeglądarka sprawdza podpis. Jeśli zna i ufa wystawcy, pokazuje kłódkę.</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="panel wide reveal">
+      <div class="side-by-side">
+        <div class="actor"><svg class="ch ch-sq" aria-hidden="true"><use href="#ch-ca"/></svg></div>
+        <p class="cap">Tym „kimś” jest <b>urząd certyfikacji</b>, po angielsku <b>CA</b> (Certificate Authority). To po prostu instytucja, której przeglądarki i systemy operacyjne ufają. Lista takich zaufanych instytucji jest wbudowana w Windows, macOS, Androida i przeglądarki.</p>
+      </div>
+    </div>
+
+    <!-- 2.3 Co sprawdza CA -->
+    <h3 class="step-title reveal"><span>3</span> Co tak naprawdę sprawdza urząd certyfikacji?</h3>
+    <p class="cap cap-block reveal">Najczęściej spotykane certyfikaty to certyfikaty <b>DV</b> (Domain Validation, potwierdzenie domeny). Przy nich urząd certyfikacji sprawdza <b>tylko jedno</b>: czy osoba prosząca o certyfikat ma kontrolę nad adresem strony. Robi to automatycznie, np. prosząc o umieszczenie na stronie specjalnego pliku. Taki certyfikat można dziś dostać za darmo w kilka minut.</p>
+    <figure class="reveal" aria-labelledby="cap-dv">
+      <ol class="strip c4 flow">
+        <li class="panel mini">
+          <span class="num">1</span><b>Prośba</b>
+          <p class="bubble t-down">„Chcę certyfikat dla edu.przyklad.pl”</p>
+          <svg class="ch sm ch-sq" aria-hidden="true"><use href="#ch-site"/></svg>
+        </li>
+        <li class="panel mini">
+          <span class="num">2</span><b>Sprawdzenie</b>
+          <p class="bubble t-down">„Umieść na tej stronie plik z kodem 7F3A”</p>
+          <svg class="ch sm ch-sq" aria-hidden="true"><use href="#ch-ca"/></svg>
+        </li>
+        <li class="panel mini">
+          <span class="num">3</span><b>Plik jest</b>
+          <p class="bubble t-down">„Masz kontrolę nad adresem”</p>
+          <div class="duo" aria-hidden="true"><svg class="ch xs ch-sq"><use href="#ch-ca"/></svg><span class="file">7F3A</span></div>
+        </li>
+        <li class="panel mini done">
+          <span class="num">✓</span><b>Certyfikat</b>
+          <span class="sfx sfx-sm">WYDANY!</span>
+          <svg class="lock-big" aria-hidden="true"><use href="#ic-lock"/></svg>
+          <small>Wydany. Kłódka w przeglądarce.</small>
+        </li>
+      </ol>
+      <div class="panel not-checked">
+        <svg class="ch sm ch-sq" aria-hidden="true"><use href="#ch-ca"/></svg>
+        <div>
+          <b>Czego urząd certyfikacji NIE sprawdza:</b>
+          <span>✗ czy strona jest uczciwa</span>
+          <span>✗ czy nie ma na niej wirusów</span>
+          <span>✗ kto naprawdę za nią stoi</span>
+        </div>
+      </div>
+      <figcaption id="cap-dv" class="cap cap-block">Certyfikat DV potwierdza tylko, że ktoś kontroluje adres strony.</figcaption>
+    </figure>
+
+    <!-- 2.4 Analogia -->
+    <h3 class="step-title reveal"><span>4</span> Urząd certyfikacji i Pan od informatyki pełnią tę samą rolę</h3>
+    <div class="panel wide reveal">
+      <p class="cap">Zastanówmy się, co się dzieje, gdy Pan od informatyki, któremu ufamy my i nasze dzieci, mówi:</p>
+      <div class="scene sc-class">
+        <div class="actor actor-wide"><p class="bubble t-down big">„edutrack to nasza platforma, pod tym adresem są zadania i można z niej bezpiecznie korzystać”.</p><svg class="ch" aria-hidden="true"><use href="#ch-teacher"/></svg></div>
+        <div class="actor" aria-hidden="true"><svg class="ch"><use href="#ch-dad"/></svg></div>
+        <div class="actor" aria-hidden="true"><svg class="ch ch-kid"><use href="#ch-kid"/></svg></div>
+      </div>
+      <p class="cap cap-end">To dokładnie to samo, co robi urząd certyfikacji. Ktoś, komu ufamy, potwierdza, że dany adres należy do tego, do kogo powinien. W jednym przypadku poręcza instytucja wpisana do przeglądarki, w drugim nauczyciel, którego znamy osobiście.</p>
+    </div>
+
+    <figure class="reveal" aria-labelledby="cap-analogia">
+      <div class="analogy">
+        <div class="panel side">
+          <p class="who">Urząd certyfikacji</p>
+          <div class="actor"><p class="bubble t-down">„Ten adres należy do właściciela strony.”</p><svg class="ch ch-sq" aria-hidden="true"><use href="#ch-ca"/></svg></div>
+          <div class="result"><svg class="ch xs ch-sq" aria-hidden="true"><use href="#ch-browser"/></svg><span>Przeglądarka ufa: <b>kłódka 🔒</b></span></div>
+        </div>
+        <div class="equals" aria-hidden="true">=</div>
+        <div class="panel side">
+          <p class="who">Pan od informatyki</p>
+          <div class="actor"><p class="bubble t-down">„To jest nasza platforma z zadaniami.”</p><svg class="ch" aria-hidden="true"><use href="#ch-teacher"/></svg></div>
+          <div class="result"><span class="duo" aria-hidden="true"><svg class="ch xs"><use href="#ch-dad"/></svg><svg class="ch xs ch-kid"><use href="#ch-kid"/></svg></span><span>Rodzice i dzieci ufają: <b>wchodzimy ✓</b></span></div>
+        </div>
+      </div>
+      <figcaption id="cap-analogia" class="cap cap-block">W obu przypadkach zaufanie opiera się na tym, kto poręcza za stronę.</figcaption>
+    </figure>
+
+    <div class="aside reveal">
+      <span class="sfx sfx-sm" aria-hidden="true">UWAGA!</span>
+      <p><b>Uczciwie trzeba dodać:</b> przeglądarka sprawdza podpis urzędu certyfikacji sama, przy każdym wejściu. Słowo nauczyciela musimy „sprawdzić” sami, czyli upewnić się, że otwieramy dokładnie ten adres, który podał, a nie podobny link z innego źródła.</p>
+    </div>
+
+    <!-- 2.5 Self-signed -->
+    <h3 class="step-title reveal"><span>5</span> Skąd ostrzeżenie na platformie edutrack?</h3>
+    <div class="strip c2">
+      <div class="panel reveal">
+        <p class="cap">Platforma edutrack używa certyfikatu <b>wystawionego samodzielnie</b> (ang. <i>self-signed</i>). To tak, jakby ktoś sam sobie wypisał legitymację i sam ją podpisał. Połączenie nadal jest szyfrowane, ale przeglądarka nie zna podpisującego, więc uprzedza: „Nie mogę potwierdzić, kto jest po drugiej stronie”.</p>
+        <div class="scene sc-sky">
+          <div class="actor"><span class="self-id" aria-hidden="true">LEGITYMACJA<br><small>podpis: ja ✍️</small></span><svg class="ch ch-sq" aria-hidden="true"><use href="#ch-site"/></svg></div>
+          <div class="actor"><p class="bubble t-down">„Nie mogę potwierdzić, kto jest po drugiej stronie”.</p><svg class="ch ch-sq" aria-hidden="true"><use href="#ch-browser"/></svg></div>
+        </div>
+      </div>
+      <div class="panel reveal">
+        <p class="cap">To częsta praktyka, stosowana nawet w dużych firmach do wewnętrznych systemów, najczęściej z oszczędności. Na komputerach firmowych, a być może także szkolnych, dodaje się taki certyfikat do listy zaufanych. Wtedy ostrzeżenie się nie pojawia. W domach tej konfiguracji nie mamy, dlatego widzimy komunikat.</p>
+        <div class="scene sc-office" aria-hidden="true">
+          <span class="office">🏢</span>
+          <div class="trust-list"><b>Lista zaufanych</b><span>✓ CA</span><span>✓ CA</span><span class="added">✓ edutrack</span></div>
+        </div>
+      </div>
+    </div>
+
+    <figure class="reveal" aria-labelledby="cap-self">
+      <div class="strip c2 two-browsers">
+        <div class="panel browser">
+          <div class="bar"><span class="pad ok">🔒</span> edutrack…</div>
+          <div class="screen ok-screen"><b>Komputer w szkole</b><small>certyfikat dodany do zaufanych</small><span class="big">✓</span></div>
+        </div>
+        <div class="panel browser">
+          <div class="bar"><span class="pad bad">⚠</span> edutrack…</div>
+          <div class="screen bad-screen"><b>Komputer w domu</b><small>„Połączenie nie jest prywatne”</small><span class="big">!</span></div>
+        </div>
+      </div>
+      <figcaption id="cap-self" class="cap cap-block">Ta sama strona, ten sam certyfikat. Różni się tylko lista zaufanych wystawców na komputerze.</figcaption>
+    </figure>
+
+    <!-- 2.6 Hasło i logowanie Microsoft -->
+    <h3 class="step-title reveal"><span>6</span> A co z hasłem dziecka?</h3>
+    <div class="panel wide reveal">
+      <div class="side-by-side">
+        <div class="actor"><span class="think">?</span><svg class="ch" aria-hidden="true"><use href="#ch-dad"/></svg></div>
+        <div>
+          <p class="cap">Niektórym może się wydawać, że zapewnienie Pana od informatyki, że strona jest bezpieczna i nie podajemy na niej żadnych wrażliwych danych, jest nieprawdziwe. Przecież dzieci się tam logują, czyli podają hasło.</p>
+          <p class="cap">Tak naprawdę hasło wpisuje się <b>na stronie Microsoftu</b>, a tam jest już poprawny certyfikat od zaufanego wystawcy. Po kliknięciu „Zaloguj” przeglądarka przechodzi na adres Microsoftu (<code>login.microsoftonline.com</code>), dziecko podaje tam hasło, a Microsoft odsyła do edutrack tylko potwierdzenie, kto się zalogował. <b>Edutrack nie otrzymuje hasła</b> od użytkownika.</p>
+        </div>
+      </div>
+    </div>
+
+    <figure class="reveal" aria-labelledby="cap-login">
+      <ol class="strip c4 login-flow">
+        <li class="panel mini lf-step">
+          <span class="num">1</span><b>Dziecko</b>
+          <span class="sfx sfx-sm" aria-hidden="true">KLIK!</span>
+          <svg class="ch sm ch-kid" aria-hidden="true"><use href="#ch-kid"/></svg>
+          <small>klika „Zaloguj” na edutrack</small>
+        </li>
+        <li class="panel mini lf-step warn-step">
+          <span class="num">2</span><b>edutrack <span aria-hidden="true">⚠️</span></b>
+          <p class="bubble t-down">Idź do Microsoftu!</p>
+          <svg class="ch sm ch-sq" aria-hidden="true"><use href="#ch-site"/></svg>
+          <small>przekierowuje do Microsoftu</small>
+        </li>
+        <li class="panel mini lf-step ok-step">
+          <span class="num">3</span><b>Microsoft <span aria-hidden="true">🔒</span></b>
+          <div class="ms-login" aria-hidden="true"><span class="ms-logo"><i></i><i></i><i></i><i></i></span><span class="field">••••••</span></div>
+          <small>tu wpisuje się hasło<br><code>login.microsoftonline.com</code></small>
+        </li>
+        <li class="panel mini lf-step">
+          <span class="num">4</span><b>edutrack <span aria-hidden="true">🎫</span></b>
+          <p class="bubble t-down">„To jest ten uczeń”</p>
+          <svg class="ch sm ch-sq" aria-hidden="true"><use href="#ch-site"/></svg>
+          <small>dostaje tylko potwierdzenie „to jest ten uczeń”, bez hasła</small>
+        </li>
+      </ol>
+      <div class="pw-note"><span aria-hidden="true">🔑</span> Hasło trafia wyłącznie do Microsoftu, przez połączenie z poprawnym certyfikatem.</div>
+      <figcaption id="cap-login" class="cap cap-block">Logowanie przez konto Microsoft: hasło nigdy nie trafia na stronę z ostrzeżeniem.</figcaption>
+    </figure>
+
+    <!-- 2.7 Kontekst i AI -->
+    <h3 class="step-title reveal"><span>7</span> „Przecież AI mówi, że ta strona jest niebezpieczna”</h3>
+    <div class="panel wide reveal">
+      <div class="side-by-side">
+        <div class="actor"><svg class="ch ch-sq" aria-hidden="true"><use href="#ch-ai"/></svg></div>
+        <div>
+          <p class="cap">Miałem kilka rozmów o bezpieczeństwie platformy edutrack i często pojawiał się ten argument: sztuczna inteligencja potwierdziła, że strona jest niebezpieczna. Tyle że odpowiedź AI zależy od tego, o co i jak zapytamy. Kluczowy jest <b>kontekst</b>.</p>
+          <p class="cap">Ostrzeżenie o certyfikacie na stronie, na której się go nie spodziewamy, rzeczywiście jest podejrzane. Ale nawet dużym, znanym serwisom zdarza się zapomnieć o przedłużeniu certyfikatu i wtedy ten sam komunikat pojawia się u nich. Gdy opiszemy AI całą sytuację, czyli że to szkolna platforma, którą poleca nauczyciel, a certyfikat jest wystawiony samodzielnie, odpowiedź wygląda już zupełnie inaczej.</p>
+          <p class="cap">Poniżej moja rozmowa z asystentem AI (Claude). Poprawiłem w niej tylko literówki.</p>
+        </div>
+      </div>
+    </div>
+
+    <figure class="reveal" aria-labelledby="cap-ai">
+      <div class="strip c2 chat">
+        <div class="panel chat-panel">
+          <p class="tag bad-tag">Pytanie 1: bez kontekstu</p>
+          <div class="talk me">
+            <svg class="ch avatar" aria-hidden="true"><use href="#ch-dad"/></svg>
+            <div class="bubble t-left">Czy wchodzenie na stronę, na której otrzymuję komunikat, że połączenie nie jest prywatne, bo strona ma nieprawidłowy certyfikat, jest bezpieczne?</div>
+          </div>
+          <div class="talk ai">
+            <div class="bubble t-right ai-bubble bad-msg">
+              <p><b>Zazwyczaj nie warto.</b> Ten komunikat oznacza, że przeglądarka nie może potwierdzić tożsamości strony, więc połączenie może być przechwycone lub podmienione (np. przez fałszywą stronę lub atak w publicznej sieci Wi‑Fi).</p>
+              <p><b>Kiedy na pewno nie wchodzić:</b></p>
+              <ul>
+                <li>strony banków, sklepów, poczty, portali społecznościowych, ogólnie wszędzie, gdzie się logujesz lub podajesz dane albo kartę,</li>
+                <li>gdy błąd pojawia się na znanej stronie, która wcześniej działała normalnie,</li>
+                <li>gdy jesteś w publicznym Wi‑Fi (kawiarnia, lotnisko).</li>
+              </ul>
+              <p><b>Kiedy ryzyko jest niewielkie:</b></p>
+              <ul>
+                <li>własne urządzenia w sieci domowej (router, drukarka, NAS), które często mają certyfikat „samopodpisany”,</li>
+                <li>strona tylko do czytania, bez logowania i podawania danych, i wiesz, że to właściwy adres.</li>
+              </ul>
+              <p><b>Co sprawdzić:</b></p>
+              <ul>
+                <li>czy data i godzina w telefonie/komputerze są poprawne (zła data często wywołuje ten błąd),</li>
+                <li>czy adres strony jest dokładnie taki, jak powinien (literówki = podejrzane),</li>
+                <li>czy błąd znika w innej sieci (np. na danych komórkowych zamiast Wi‑Fi).</li>
+              </ul>
+              <p>Jeśli to ważna strona i błąd się utrzymuje, lepiej odpuścić i spróbować później albo skontaktować się z jej właścicielem.</p>
+            </div>
+            <svg class="ch avatar ch-sq" aria-hidden="true"><use href="#ch-ai"/></svg>
+          </div>
+        </div>
+
+        <div class="panel chat-panel">
+          <p class="tag ok-tag">Pytanie 2: z kontekstem</p>
+          <div class="talk me">
+            <svg class="ch avatar" aria-hidden="true"><use href="#ch-dad"/></svg>
+            <div class="bubble t-left">A jeśli strona to szkolny serwis do odczytywania zadań z informatyki, logowanie odbywa się przez konto Microsoft, a Pan od informatyki powiedział, że szkoła nie ma certyfikatu dla tej podstrony, to czy nadal jest to niebezpieczne?</div>
+          </div>
+          <div class="talk ai">
+            <div class="bubble t-right ai-bubble ok-msg">
+              <p><b>W takiej sytuacji ryzyko jest niewielkie</b>, jeśli nauczyciel to potwierdził i znasz właściwy adres strony. Szkoły często mają wewnętrzne serwisy bez poprawnego certyfikatu.</p>
+              <p><b>Najważniejsze jest, gdzie wpisujesz hasło do konta Microsoft:</b></p>
+              <ul>
+                <li><b>Bezpiecznie:</b> po kliknięciu „zaloguj” zostajesz przekierowany na stronę Microsoftu (adres zaczyna się od <code>login.microsoftonline.com</code> lub <code>login.live.com</code>) i tam nie ma ostrzeżenia, a jest normalna kłódka. Wtedy hasło trafia do Microsoftu, nie do szkolnej strony.</li>
+                <li><b>Niebezpiecznie:</b> okienko logowania Microsoft pojawia się na stronie z ostrzeżeniem o certyfikacie. Wtedy nie wpisuj hasła, bo ktoś mógłby je przechwycić.</li>
+              </ul>
+              <p><b>Dodatkowo:</b></p>
+              <ul>
+                <li>upewnij się, że adres jest dokładnie ten, który podał nauczyciel,</li>
+                <li>najlepiej wchodź z sieci domowej lub szkolnej, a nie z publicznego Wi‑Fi,</li>
+                <li>jeśli masz wątpliwości, zapytaj nauczyciela, czy logowanie przekierowuje do Microsoftu.</li>
+              </ul>
+            </div>
+            <svg class="ch avatar ch-sq" aria-hidden="true"><use href="#ch-ai"/></svg>
+          </div>
+        </div>
+      </div>
+      <figcaption id="cap-ai" class="cap cap-block">Ta sama sztuczna inteligencja, podobne pytanie. Odpowiedź zmienia się, gdy AI zna kontekst.</figcaption>
+    </figure>
+
+    <!-- 2.8 Czego kłódka nie mówi -->
+    <h3 class="step-title reveal"><span>8</span> Kłódka to nie gwarancja bezpieczeństwa</h3>
+    <figure class="reveal" aria-labelledby="cap-klodka">
+      <div class="panel wide">
+        <div class="side-by-side">
+          <div class="actor"><p class="bubble t-down">Ja też mam kłódkę!</p><svg class="ch ch-sq" aria-hidden="true"><use href="#ch-fake"/></svg></div>
+          <p class="cap">„Zielona kłódka” daje dziś w dużej mierze pozorne poczucie bezpieczeństwa. Fałszywe strony bez problemu dostają darmowe certyfikaty. A jeśli ktoś włamie się na prawdziwą stronę i umieści na niej coś złośliwego, kłódka nadal będzie widoczna.</p>
+        </div>
+      </div>
+      <div class="strip c2 checklist">
+        <div class="panel yes">
+          <h4>🔒 Kłódka oznacza</h4>
+          <ul>
+            <li>połączenie jest szyfrowane</li>
+            <li>zaufany wystawca potwierdził, że ktoś kontroluje ten adres</li>
+          </ul>
+        </div>
+        <div class="panel no">
+          <h4>Kłódka NIE oznacza</h4>
+          <ul>
+            <li>że strona jest uczciwa</li>
+            <li>że nie ma na niej wirusów</li>
+            <li>że strona nie została zhakowana</li>
+          </ul>
+        </div>
+      </div>
+      <figcaption id="cap-klodka" class="cap cap-block">Nawet gdy edutrack dostanie certyfikat od zaufanego wystawcy, nie zmieni to tego, co jest na stronie.</figcaption>
+    </figure>
+
+    <!-- 2.9 Bezpieczne nawyki -->
+    <h3 class="step-title reveal"><span>9</span> Co realnie chroni komputer w domu</h3>
+    <div class="strip c3 habits reveal">
+      <div class="panel habit"><span aria-hidden="true">🔄</span><b>Aktualizacje</b><small>systemu i przeglądarki, włączone automatycznie.</small></div>
+      <div class="panel habit"><span aria-hidden="true">🛡️</span><b>Program antywirusowy</b><small>wbudowany w Windows Defender w zupełności wystarcza.</small></div>
+      <div class="panel habit"><span aria-hidden="true">👤</span><b>Osobne konto dla dziecka</b><small>bez uprawnień administratora, więc nic nie zainstaluje samo.</small></div>
+      <div class="panel habit"><span aria-hidden="true">🔗</span><b>Sprawdzony adres</b><small>otwierajcie platformę z adresu podanego przez nauczyciela, najlepiej z zakładki.</small></div>
+      <div class="panel habit"><span aria-hidden="true">📦</span><b>Ostrożnie z plikami</b><small>nie uruchamiajcie pobranych programów (.exe) z nieznanych źródeł.</small></div>
+      <div class="panel habit"><span aria-hidden="true">💾</span><b>Kopia na pendrive</b><small>zrzuty ekranu i załączniki do zadań zapisane lokalnie przydadzą się, gdy platforma nie działa.</small></div>
+    </div>
+
+    <div class="the-end reveal" aria-hidden="true">
+      <div class="duo"><svg class="ch sm"><use href="#ch-teacher"/></svg><svg class="ch sm"><use href="#ch-dad"/></svg><svg class="ch sm ch-kid"><use href="#ch-kid"/></svg><svg class="ch sm ch-sq"><use href="#ch-browser"/></svg></div>
+      <span class="sfx">KONIEC</span>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="small"><a href="../">Wersja klasyczna</a> · edu-informatyka.jszwab.site</p>
+  </div>
+</footer>
+
+<script>
+  // Siatka pikseli do kafelka „grafika rastrowa”
+  (function () {
+    var g = document.getElementById('px');
+    if (!g) return;
+    var heart = ["0110110", "1111111", "1111111", "0111110", "0011100", "0001000"];
+    var size = 10, ox = 5, oy = 10, ns = 'http://www.w3.org/2000/svg', i = 0;
+    heart.forEach(function (row, y) {
+      row.split('').forEach(function (c, x) {
+        var r = document.createElementNS(ns, 'rect');
+        r.setAttribute('x', ox + x * size);
+        r.setAttribute('y', oy + y * size);
+        r.setAttribute('width', size - 1);
+        r.setAttribute('height', size - 1);
+        r.setAttribute('class', c === '1' ? 'p on' : 'p');
+        r.style.animationDelay = (i++ * 0.04) + 's';
+        g.appendChild(r);
+      });
+    });
+  })();
+
+  // Kadry pojawiają się przy przewijaniu
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (e) { e.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.08 });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
+</body>
+</html>
